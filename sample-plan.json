@@ -1,0 +1,46 @@
+{
+  "version": 3,
+  "project": "Sample Project",
+  "settings": {
+    "project_slug": "sample",
+    "theme": "dark_pro",
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "font": "assets/fonts/Anton-Regular.ttf",
+    "text_defaults": { "color": "#FFF500", "uppercase": true }
+  },
+  "inputs": { "narration": "assets/audio/sample.mp3" },
+  "words": [],
+  "overlays": [],
+  "beats": [
+    {
+      "start": 0, "end": 5, "type": "broll", "layout": "full",
+      "say": "Two people finish the same dinner.",
+      "transition": "slideleft", "transition_duration": 0.3,
+      "layers": [
+        { "type": "broll", "media": "video", "query": "two adults eating pasta dinner at home table",
+          "alt_queries": ["couple eating dinner", "family dinner table"], "zoom": "in", "fit": "cover" }
+      ]
+    },
+    {
+      "start": 5, "end": 10, "type": "broll", "layout": "full",
+      "say": "One of them sits down on the couch.",
+      "transition": "slideright", "transition_duration": 0.3,
+      "layers": [
+        { "type": "broll", "media": "video", "query": "man sitting down on couch after dinner",
+          "alt_queries": ["person relaxing on sofa"], "zoom": "out", "fit": "cover" }
+      ]
+    },
+    {
+      "start": 10, "end": 15, "type": "broll", "layout": "full",
+      "say": "and walks around the block for ten minutes.",
+      "transition": "slideup", "transition_duration": 0.3,
+      "layers": [
+        { "type": "broll", "media": "video", "query": "senior woman walking briskly morning street",
+          "alt_queries": ["older woman walking outdoors"], "zoom": "in", "fit": "cover" }
+      ]
+    }
+  ]
+}
