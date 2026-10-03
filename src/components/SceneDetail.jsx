@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { toHinglish } from "../hinglish.js";
+// hinglish.js auto-translation removed — instruction now comes from JSON field
 
 function Thumb({ video, isPicked, onPick }) {
   const [hovering, setHovering] = useState(false);
@@ -34,6 +34,7 @@ export default function SceneDetail({ beat, beatIndex, resultsCache, onPick, pas
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const query = beat.layers?.[0]?.query || beat.say;
+  const instruction = beat.layers?.[0]?.instruction || null;
   const pickedId = beat.layers?.[0]?.pexels_id;
   const lastSearchedFor = useRef(null);
 
@@ -80,11 +81,13 @@ export default function SceneDetail({ beat, beatIndex, resultsCache, onPick, pas
       <h2>Scene {beatIndex + 1}</h2>
       <div className="say">{beat.say}</div>
 
-      <div className="instruction-box">
-        <div className="label">Kaisa clip dhundhna hai</div>
-        <div className="hinglish">{toHinglish(query)}</div>
-        <div className="english">English keyword: {query}</div>
-      </div>
+      {instruction && (
+        <div className="instruction-box">
+          <div className="label">Kaisa clip dhundhna hai</div>
+          <div className="hinglish">{instruction}</div>
+          <div className="english">English: {query}</div>
+        </div>
+      )}
 
       {loading && <p className="loading-text">Clips dhundh rahe hain…</p>}
       {error && <p className="error-text">{error}</p>}
